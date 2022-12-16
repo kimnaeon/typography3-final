@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>process</title>
+
+    <style>
+
+    #font2 {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1 {
+      border-bottom:2px solid black;
+      margin:0;
+      padding:70px;
+      text-align: center;
+    }
+
+    h2 {
+      border-right:2px solid black;
+      margin:0;
+      padding:70px;
+      width: 150px;
+      text-align: center;
+    }
+
+
+    #grid1 {
+        display: grid;
+        border-bottom:2px solid black;
+        margin:0;
+        grid-template-columns: 380px 3fr 300px;
+        align-items: center;
+    }
+
+    #grid2 {
+        display: grid;
+        border-top:2px solid black;
+        margin:0;
+        padding:70px;
+        grid-template-columns: 380px 3fr 300px;
+
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #grid3 {
+        display: grid;
+        margin:0;
+        padding:10px;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; /*수직 정렬*/
+        align-items: center;
+        justify-content: center;
+    }
+
+    #grid4 {
+        display: grid;
+        border-bottom:2px solid black;
+
+        margin:0;
+        align-items: center;
+    }
+
+    #grid5 {
+        display: grid;
+        border-right:2px solid black;
+        border-left:2px solid black;
+        margin:0;
+    }
+
+    #grid6 {
+        display: grid;
+        border-bottom:2px solid black;
+        grid-template-columns: 0.8fr 0.8fr 0.8fr;
+        grid-column-gap:180px;
+        margin:0;
+
+        padding:150px;
+    }
+
+    body{
+    animation: fadein 2000ms ease-out;
+    -moz-animation: fadein 2000ms ease-out; /* Firefox */
+    -webkit-animation: fadein 2000ms ease-out; /* Safari and  Chrome */
+    -o-animation: fadein 2000ms ease-out; /* Opera */
+    }
+    @keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-o-keyframes fadein { /* Opera */
+      from {opacity:0;}
+      to {opacity: 1;}
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <script>
+    jQuery(function($) {
+      $("body").css("display", "none");
+      $("body").fadeIn(2000);
+      $("a.transition").click(function(event){
+        event.preventDefault();
+        linkLocation = this.href;
+        $("body").fadeOut(1000, redirectPage);
+      });
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+    </script>
+
+      <h1 id="font2" style = " font-size:85pt;">Process</h1>
+      <br>
+      <br>
+      <div id="grid1">
+      <h2 id="font2" style = " font-size:20pt;">설명</h2>
+      <p id="font2" style = " font-size:20pt;">'부유'의 상태를 물리적으로 재현하여 평면에 옮기는 데에 중점을 둔 작업에서,<br>
+        환경 이외의 부분에서 개입할 수 없었던 작업자가 <br>텍스트의 조작에 개입할 수 있도록
+        하는 간단한 웹 인터렉션이다. <br>1, 2, 3의 총 세 가지 방법으로 사용자는 글자의 위치를 조작할 수 있게 된다.
+        <br>‘부유’ 라는 작업에서 ‘사용자의 개입’을 해체하여 사용자가 이미지를 만들거나 조판하는 행위에 중점을 두었다.<br>다음 작업들은 이 작업에 오기까지 거쳤던 물리 실험들이다.
+        <br>(라이브러리 이용/변형)
+        <br><br><br>"이러한 개념적인 측면에서, ‘부유하는 글자’ 작업이 가장 해체된 형태는 아이러니하게도 디자이너의 완벽한 개입이 들어간 조판물이 될 수 있다."</p>
+        <a href="index.html" style = "width:10px height:10px;"><img src="home.png"></a>
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <center><h4 id="font2" style = " font-size:20pt;">사진 위에 커서를 올리면 실험 제목을 확인할 수 있습니다.</h4></center>
+
+      <br>
+      <br>
+
+      <center><img src="vedio1.gif" title="벽 반사">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio2.gif" title="공 그리기">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio3.gif" title="마우스 인터렉션, 공 반사"></center>
+      <br>
+      <center><img src="vedio4.gif" title="마우스 인터렉션">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio5.gif" title="마우스 인터렉션">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio6.gif" title="복합적 요소"></center>
+      <br>
+      <center><img src="vedio7.gif" title="복수의 물체">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio8.gif" title="복수의 글자">&nbsp;&nbsp;&nbsp;&nbsp;<img src="vedio9.gif" title="자연스러운 물리적 움직임"></center>
+      <br>
+      <center><img src="vedio10.gif" title="자연스러운 물리적 움직임의 글자"></center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+    <div id="grid5">
+      <div id="grid2">
+      <p id="font2" style = " font-size:20pt;">다음과 같은 과정을 거쳐 물리엔진을 구현하였으며,
+        <br>1번, 2번, 3번의 세 가지 방식으로 '부유'를 해체한다.</p>
+      </div>
+
+
+      <div id="grid3">
+      <div>
+      <a href="page1.html"><img src="1.png"></a>&nbsp;&nbsp;<a href="page2.html"><img src="2.png"></a>&nbsp;&nbsp;<a href="page3.html"><img src="3.png"></a>
+      </div>
+      <br><div>Pages turn when clicked.</div>
+      </div>
+
+      <br>
+
+
+      <div id="grid4">
+      <center><ol id="font2" style = " font-size:20pt;">첫 번째. 문자를 입력하세요!</ol></center>
+      <center><ol id="font2" style = " font-size:20pt;">두 번째. 글자를 드래그하세요!</ol></center>
+      <center><ol id="font2" style = " font-size:20pt;">세 번째. 글자의 방향을 바꾸어 보세요!</ol></center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      </div>
+    </div>
+
+    <div id="grid6">
+      <div>
+      <center><img src="nb1.png"></center>
+      <br><br><br><p1 id="font2" style = " font-size:20pt;">첫 번째 해체는 영역에서 글자가 들어가는 영역의 움직임이다.
+        사용자가 써 내려간 글자는 궤도의 형태로 판형 위에 안착한다.
+        사용자가 글을 작성하는 텀, 사용하는 언어, 적은 말, 등의 요소가 이미지에 영향을 준다.
+        사용자는 정해져 있는 궤도 위에서 제공되는 소스를 바꾸어가며 시각적 이미지를 만들 수 있다.</p1>
+      </div>
+
+      <div>
+      <center><img src="nb2.png"></center>
+      <br><br><br><p2 id="font2" style = " font-size:20pt;">두 번째 해체는 움직이는 글자의 조정이다.
+        벽 안에 갇힌 물리 운동을 하는 글자들은 서로 만나게 되면 반사한다.
+        사용자는 여러가지 글자 중 하나만을 움직일 수 있고,
+        타이밍에 맞춰 비정기적으로 다른 글자들의 색이 변한다.
+        타이밍의 문제다. 사용자는 글자를 움직이는 타이밍,
+        그리고 움직이는 궤적에 따라 달라지는 색상과 궤도를 이용하여 시각적 이미지를 만들 수 있다.</p2>
+      </div>
+
+      <div>
+      <center><img src="nb3.png"></center>
+      <br><br><br><p3 id="font2" style = " font-size:20pt;">세 번째 해체는 글자의 반사 방향이다. 사용자의 마우스가 드래그 하는 쪽으로 선분이 생기고,
+        방향의 반대로 반사되는 글자는 속도가 점점 느려지는 물리적 반응을 보인다.
+        사용자는 이러한 물리적 반응과 마우스를 드래그 하며 생기는 조형요소 ‘선’을 이용하여 시각적 이미지를 만들 수 있다.</p3>
+      </div>
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <center><h4 id="font2" style = " font-size:20pt;">지금까지 소개한 세 가지의 엔진을 통해 그래픽을 제작해 보세요!</h4></center>
+      <center><h4 id="font2" style = " font-size:20pt;">*윈도우 캡처를 지원하는 브라우저를 사용하면 더 좋습니다*</h4></center>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <center><div>김나언 / c146028@g.hongik.ac.kr</div></center>
+      <center><div>copyright©kim naeon Corp. All Rights Reserved.</div></center>
+      <center><div>지도교수 정영훈</div></center>
+      <br>
+      <center><div>Typography(3) finals</div></center>
+      <center><div>2022.12.16-ing</div></center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+  </body>
+</html>

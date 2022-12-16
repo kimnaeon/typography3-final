@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
+        <style>
+        body{
+          animation: fadein 2000ms ease-out;
+          -moz-animation: fadein 2000ms ease-out; /* Firefox */
+          -webkit-animation: fadein 2000ms ease-out; /* Safari and  Chrome */
+          -o-animation: fadein 2000ms ease-out; /* Opera */
+          }
+          @keyframes fadein {
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-moz-keyframes fadein { /* Firefox */
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-o-keyframes fadein { /* Opera */
+            from {opacity:0;}
+            to {opacity: 1;}
+          }
+        </style>
+
+    </head>
+    <body>
+        <script>
+
+var button;
+
+let ax=300;
+let ay=150;
+
+let speedax=-0.5;
+let speeday=0.5;
+
+let z=50;
+
+let dragax, dragay, moveax, moveay;
+
+let overBoxa = false;
+let lockeda = false;
+
+let axOffset = 0.0;
+let ayOffset = 0.0;
+
+let font1;
+
+let t;
+
+
+function preload(){
+  font1=(loadFont("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff"))
+}
+
+
+function setup(){
+  createCanvas(windowWidth, windowHeight);
+  c1 = color(300,10,10);
+  c2 = color(240);
+
+  for(let y=0; y<windowHeight; y++){
+    n = map(y,0,windowHeight,0,1);
+    let newc = lerpColor(c1,c2,n);
+    stroke(newc);
+    line(0,y,windowWidth, y);
+  }
+
+    button = createImg('home.png');
+    button.position(width * 0.91, height * 0.05);
+    button.size(75,75);
+    button.mousePressed(movetoHome);
+
+    input = createInput();
+    input.position(width * 0.03, height * 0.05, 300, 700);
+
+    function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    }
+}
+
+function movetoHome(){
+  window.location.href = 'index.html'
+}
+
+function draw(){
+
+  const t = input.value();
+  input.value('');
+
+  if (
+    mouseX > ax - z &&
+    mouseX < ax + z &&
+    mouseY > ay - z &&
+    mouseY < ay + z
+  ) {
+    overBoxa = true;
+    if (!lockeda) {
+      fill(0);
+    }
+  } else {
+    overBoxa = false;
+  }
+
+
+  text(t,ax,ay,z);
+  textSize(100);
+  textFont(font1);
+  fill(400,100,100);
+  stroke(500,500,500);
+  strokeWeight(3);
+
+
+  if( ax < 0+z/2 || ax > width-z/2){
+    speedax*=-1;
+  }
+  if( ay < 0+z/2 || ay > height-z/2){
+    speeday*=-1;
+  }
+
+  ax+=speedax
+  ay+=speeday
+}
+
+//움직이기 끝
+//마우스프레스 시작
+
+function mousePressed() {
+
+  //
+
+  if (overBoxa) {
+    lockeda = true;
+    fill(0);
+  } else {
+    lockeda = false;
+  }
+  axOffset = mouseX - ax;
+  ayOffset = mouseY - ay;
+}
+
+
+function mouseDragged() {
+  if (lockeda) {
+    ax = mouseX - axOffset;
+    ay = mouseY - ayOffset;
+  }
+}
+
+function mouseReleased() {
+  lockeda= false;
+
+
+}
+
+jQuery(function($) {
+$("body").css("display", "none");
+$("body").fadeIn(2000);
+$("a.transition").click(function(event){
+  event.preventDefault();
+  linkLocation = this.href;
+  $("body").fadeOut(1000, redirectPage);
+});
+function redirectPage() {
+  window.location = linkLocation;
+}
+});
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+      #font1{
+        font-family: 'Archivo Black', sans-serif;
+      }
+      #font2{
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+      body{
+        background-image : url('background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      body{
+    animation: fadein 2000ms ease-out;
+    -moz-animation: fadein 2000ms ease-out; /* Firefox */
+    -webkit-animation: fadein 2000ms ease-out; /* Safari and  Chrome */
+    -o-animation: fadein 2000ms ease-out; /* Opera */
+    }
+    @keyframes fadein {
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-moz-keyframes fadein { /* Firefox */
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-o-keyframes fadein { /* Opera */
+      from {opacity:0;}
+      to {opacity: 1;}
+    }
+    </style>
+
+  </head>
+  <body>
+
+    <script>
+    jQuery(function($) {
+      $("body").css("display", "none");
+      $("body").fadeIn(2000);
+      $("a.transition").click(function(event){
+        event.preventDefault();
+        linkLocation = this.href;
+        $("body").fadeOut(1000, redirectPage);
+      });
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center><h1 id="font1" style = " font-size:53pt;">Floating Letters</h1></center>
+
+    <center><p id="font2">이 작업은  Typography(3) 수업 결과물의 해체 작업으로,
+    <br>우연적 타이포그래피에 작업자의 의도를 반영할 수 있습니다.
+    <br>각 영역에서 우연적 타이포그래피를 체험해 보세요!</p></center>
+
+    <br>
+    <br>
+
+    <center><a href="page1.html"><img src="1.png"></a>&nbsp;&nbsp;<a href="page2.html"><img src="2.png"></a>&nbsp;&nbsp;<a href="page3.html"><img src="3.png"></a>&nbsp;&nbsp;<a href="process.html"><img src="4.png"></a></center>
+
+  </body>
+</html>

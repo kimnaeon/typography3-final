@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
+        <style>
+        body{
+          animation: fadein 2000ms ease-out;
+          -moz-animation: fadein 2000ms ease-out; /* Firefox */
+          -webkit-animation: fadein 2000ms ease-out; /* Safari and  Chrome */
+          -o-animation: fadein 2000ms ease-out; /* Opera */
+          }
+          @keyframes fadein {
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-moz-keyframes fadein { /* Firefox */
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {opacity:0;}
+            to {opacity:1;}
+          }
+          @-o-keyframes fadein { /* Opera */
+            from {opacity:0;}
+            to {opacity: 1;}
+          }
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+
+            var button;
+            var pos;
+            var velocity;
+            var damper = 0.99;
+
+            function setup() {
+            createCanvas(windowWidth, windowHeight);
+
+                c1 = color(50,10,700);
+                c2 = color(240);
+
+                for(let y=0; y<height; y++){
+                n = map(y,0,height,0,1);
+                let newc = lerpColor(c1,c2,n);
+                stroke(newc);
+                line(0,y,width, y);
+                }
+
+                button = createImg('home.png');
+                button.position(width * 0.91, height * 0.05);
+                button.size(105,105);
+                button.mousePressed(movetoHome);
+
+                function windowResized() {
+                resizeCanvas(windowWidth, windowHeight);
+                }
+
+
+            pos = createVector(200,200);
+            velocity = createVector(1,0);
+
+            text('아', width, height,
+                 );
+            textSize(30);
+            fill(0);
+            noStroke(500,500,500);
+
+            }
+
+            function movetoHome(){
+              window.location.href = 'index.html'
+            }
+
+            function draw() {
+            velocity.mult(damper); // always slow the ball down to simulate resistance
+            pos.add(velocity); // pos + velocity give us our new position!
+
+            // if the ball is above or below the screen, invert the y value of the velocity to send it back where it came from
+
+             if (pos.y<0 || pos.y>height) {
+                velocity.y = -velocity.y;
+                pos.add(velocity);
+            }
+            // if the ball is left or right of the screen, invert the x value
+
+            if (pos.x<0 || pos.x>width) {
+                velocity.x = -velocity.x;
+                pos.add(velocity);
+            }
+
+            text('아',pos.x, pos.y,30);
+            textSize(30);
+            fill(0);
+            noStroke(500,500,500);
+
+            if(mouseIsPressed) {
+                // show us our "line of power"
+                stroke(255,0,0);
+                line(pos.x,pos.y, mouseX,mouseY);
+                noStroke();
+            }
+            }
+
+            function mouseReleased() {
+             // when the mouse is released we give a ball a big push
+                var direction = createVector(mouseX, mouseY);
+                direction.sub(pos);  // by subtracting the pos from mouse coordinates, we end up with a vectore between the two points
+                direction.mult(0.15);  // we shorten the magnitude to reduce the power of the push
+                velocity.set(direction); //now we have our new velocity
+            }
+
+            jQuery(function($) {
+              $("body").css("display", "none");
+              $("body").fadeIn(2000);
+              $("a.transition").click(function(event){
+                event.preventDefault();
+                linkLocation = this.href;
+                $("body").fadeOut(1000, redirectPage);
+                });
+                function redirectPage() {
+                  window.location = linkLocation;
+                  }
+                });
+
+        </script>
+
+    </body>
+</html>
